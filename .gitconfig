@@ -1,0 +1,20 @@
+[user]
+	name = Stefan
+	email = stefan.perju@cynny.com
+[branch]
+	autosetuprebase = always
+[alias]
+	k = log --graph --decorate --pretty=oneline --abbrev-commit
+	del = push origin --delete
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	pr = remote prune origin
+	f = fetch
+	p = pull
+	pu = push
+	me = merge
+	ren = rebase origin/next
+	re = rebase
+
