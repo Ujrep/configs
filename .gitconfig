@@ -19,4 +19,4 @@
 	re = rebase
 	mt = mergetoool
 	dt = difftool
-
+	t = tag
