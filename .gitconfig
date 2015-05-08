@@ -17,4 +17,6 @@
 	me = merge
 	ren = rebase origin/next
 	re = rebase
+	mt = mergetoool
+	dt = difftool
 
