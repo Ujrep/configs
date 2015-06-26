@@ -1,5 +1,4 @@
 alias g='git'
-alias nrd='npm run deploy'
 
 # Automatically add completion for all aliases to commands having completion functions
 function alias_completion {
@@ -18,6 +17,8 @@ function alias_completion {
     rm -f "/tmp/${namespace}-*.tmp" # preliminary cleanup
     local tmp_file; tmp_file="$(mktemp "/tmp/${namespace}-${RANDOM}XXX.tmp")" || return 1
 
+    local completion_loader; completion_loader="$(complete -p -D 2>/dev/null | sed -Ene 's/.* -F ([^ ]*).*/\1/p')"
+
     # read in "<alias> '<aliased command>' '<command args>'" lines from defined aliases
     local line; while read line; do
         eval "local alias_tokens; alias_tokens=($line)" 2>/dev/null || continue # some alias arg patterns cause an eval parse error
@@ -26,9 +27,21 @@ function alias_completion {
         # skip aliases to pipes, boolan control structures and other command lists
         # (leveraging that eval errs out if $alias_args contains unquoted shell metacharacters)
         eval "local alias_arg_words; alias_arg_words=($alias_args)" 2>/dev/null || continue
+        # avoid expanding wildcards
+        read -a alias_arg_words <<< "$alias_args"
 
         # skip alias if there is no completion function triggered by the aliased command
-        [[ " ${completions[*]} " =~ " $alias_cmd " ]] || continue
+        if [[ ! " ${completions[*]} " =~ " $alias_cmd " ]]; then
+            if [[ -n "$completion_loader" ]]; then
+                # force loading of completions for the aliased command
+                eval "$completion_loader $alias_cmd"
+                # 124 means completion loader was successful
+                [[ $? -eq 124 ]] || continue
+                completions+=($alias_cmd)
+            else
+                continue
+            fi
+        fi
         local new_completion="$(complete -p "$alias_cmd")"
 
         # create a wrapper inserting the alias arguments if any

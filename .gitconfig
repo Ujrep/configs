@@ -1,6 +1,6 @@
 [user]
-	name = Stefan
-	email = stefan.perju@cynny.com
+	name = Stefan Perju
+	email = stefan.perju@1and1.ro
 [branch]
 	autosetuprebase = always
 [alias]
@@ -12,11 +12,21 @@
 	st = status
 	pr = remote prune origin
 	f = fetch
-	p = pull
+	p = pull -r
 	pu = push
 	me = merge
 	ren = rebase origin/next
+	rem = rebase origin/master
+	rec = rebase --continue
+	rea = rebase --abort
 	re = rebase
-	mt = mergetoool
+	mt = mergetool
 	dt = difftool
 	t = tag
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"	
+[core]
+	autocrlf = input
+[merge]
+	tool = meld
