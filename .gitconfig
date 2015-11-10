@@ -17,15 +17,19 @@
 	me = merge
 	ren = rebase origin/next
 	rem = rebase origin/master
+	red = rebase origin/dev
 	rec = rebase --continue
 	rea = rebase --abort
 	re = rebase
 	mt = mergetool
 	dt = difftool
 	t = tag
+	rh = reset --hard HEAD
+	s = stash
+	sp = stash pop
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
-	ignored = !git ls-files -v | grep "^[[:lower:]]"	
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 [core]
 	autocrlf = input
 [merge]
