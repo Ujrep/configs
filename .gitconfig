@@ -27,9 +27,6 @@
 	rh = reset --hard HEAD
 	s = stash
 	sp = stash pop
-	ignore = update-index --assume-unchanged
-	unignore = update-index --no-assume-unchanged
-	ignored = !git ls-files -v | grep "^[[:lower:]]"
 [core]
 	autocrlf = input
 [merge]
