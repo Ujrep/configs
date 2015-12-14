@@ -29,5 +29,6 @@
 	sp = stash pop
 [core]
 	autocrlf = input
+	editor = nano
 [merge]
 	tool = meld
