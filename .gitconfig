@@ -23,7 +23,6 @@
 	re = rebase
 	mt = mergetool
 	dt = difftool
-	t = tag
 	rh = reset --hard HEAD
 	s = stash
 	sp = stash pop
