@@ -1,0 +1,42 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "bc8e8a17-5ce8-473d-86be-948bb3d48b7a"
+    general:
+      _analyticsUserId: "63e97adb-3300-4f36-bf2c-694d8ddc89ec"
+  core:
+    disabledPackages: [
+      "atom-ternjs"
+      "jshint"
+      "vue-format"
+      "minimap"
+      "pigments"
+      "language-graphql"
+      "language-vue"
+      "emmet"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    fontSize: 13
+    invisibles: {}
+    preferredLineLength: 100
+    tabType: "soft"
+  "exception-reporting":
+    userId: "cbb68a01-ca79-3bf5-f8fa-67eae70b6550"
+  "fuzzy-finder":
+    ignoredNames: [
+      "node_modules"
+    ]
+  "git-blame":
+    columnWidth: 359
+  "linter-eslint":
+    lintHtmlFiles: true
+  "linter-ui-default":
+    panelHeight: 101
+  minimap: {}
+  pigments: {}
+  welcome:
+    showOnStartup: false
