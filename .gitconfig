@@ -23,11 +23,16 @@
 	re = rebase
 	mt = mergetool
 	dt = difftool
+	t = tag
 	rh = reset --hard HEAD
 	s = stash
 	sp = stash pop
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 [core]
 	autocrlf = input
-	editor = nano
+	editor = /usr/local/bin/atom -n -w
+	excludesfile = /Users/stefan.perju/.gitignore
 [merge]
-	tool = meld
+	tool = opendiff
