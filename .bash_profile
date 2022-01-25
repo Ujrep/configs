@@ -1,18 +1,11 @@
-# source ~/.profile
 alias g=git
-alias dev="cd /Users/stefan.perju/Desktop/GIT"
-
-# export AWS_DIR="$HOME/.aws/:/root/.aws/"
-# export AWS_PROFILE=oz-dev
-# export PROJ_DIR='/Users/stefan.perju/Desktop/GIT/oz/platform'
-# export ZL_TEST_FILES_CACHE_DIR="${PROJ_DIR}/zypline_api/test/files/cache/:/code/test/files/cache/"
-# export ZL_SWF_TASK_LIST_SUFFIX=<task list suffix>
-# export NPM_AUTH_TOKEN=<npm auth token>
-# export POSTGRESQL_DATA=<path to local database storage directory>
+alias dev="cd /Users/stefanp/Documents/GIT"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Automatically add completion for all aliases to commands having completion functions
 function alias_completion {
@@ -83,7 +76,9 @@ function alias_completion {
     source "$tmp_file" && rm -f "$tmp_file"
 }; alias_completion
 
-export NVM_DIR="/Users/stefan.perju/.nvm"
+export NVM_DIR="/Users/stefanp/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
